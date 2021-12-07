@@ -10,10 +10,31 @@ def readInput():
     return lines
 
 def partOne( lines ):
-    pass
+    crabs = [ int(e) for e in lines[0].split(",")]
+    minSum = [100000000, 0]
+    for i in range(0,max(crabs)):
+        summe = 0
+        for crab in crabs:
+            summe += abs( crab - i )
+        if( summe < minSum[0]):
+            minSum = [summe, i]
+    print(minSum)
+
+
+
 
 def partTwo( lines ):
-    pass
+    crabs = [ int(e) for e in lines[0].split(",")]
+    minSum = [10000000000000, 0]
+    for i in range(0,max(crabs)):
+        summe = 0
+        for crab in crabs:
+            counter = 0
+            for j in range(1, abs( crab - i )+1):
+                summe += j
+        if( summe < minSum[0]):
+            minSum = [summe, i]
+    print(minSum)
 
 def main():
     lines = readInput()
